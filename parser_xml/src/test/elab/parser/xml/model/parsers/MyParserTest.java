@@ -8,7 +8,7 @@ import java.util.Collections;
 
 import static org.junit.Assert.*;
 
-public class MySAXParserTest {
+public class MyParserTest {
 
     @Before
     public void setUp() throws Exception {
