@@ -37,7 +37,7 @@ public class Controller {
             // print selected data
             Helper.printPersons(PersonsHolder.getPersons().stream().filter(p -> p.getCash()>10000).collect(Collectors.toList()));
 
-        } catch (TransformerException | ParserConfigurationException | SAXException | IOException e) {
+        } catch (TransformerException | ParserConfigurationException e) {
             e.printStackTrace();
         }
     }

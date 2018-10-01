@@ -1,6 +1,7 @@
 /*/out*
 /*/lib
 /*/log*
+/*/test*
 /*/target
 /*/.idea
 *.iml

@@ -74,15 +74,15 @@ public class MyDOMParser implements MyParser {
         transformer.transform(source, result);
     }
 
-    public void parseXMLFile(String fileName) throws IOException, SAXException {
+    public void parseXMLFile(String fileName) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = null;
+        Document doc = null;
         try {
-            builder = factory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            doc = builder.parse(new File(fileName));
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-        Document doc = builder.parse(new File(fileName));
 
         NodeList list = doc.getElementsByTagName("person");
 

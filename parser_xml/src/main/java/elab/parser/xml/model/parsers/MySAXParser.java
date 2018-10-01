@@ -17,11 +17,16 @@ public class MySAXParser implements MyParser {
 
     private List<Person> persons = new ArrayList<>();
 
-    public void parseXMLFile(String fileName) throws SAXException, IOException {
-        XMLReader reader = XMLReaderFactory.createXMLReader();
-        MyHandler handler = new MyHandler();
-        reader.setContentHandler(handler);
-        reader.parse(fileName);
+    public void parseXMLFile(String fileName) {
+        try {
+            XMLReader reader = XMLReaderFactory.createXMLReader();
+            MyHandler handler = new MyHandler();
+            reader.setContentHandler(handler);
+            reader.parse(fileName);
+        } catch (SAXException | IOException e) {
+            e.printStackTrace();
+        }
+
         PersonsHolder.setPersons(persons);
     }
 
