@@ -1,0 +1,122 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+}
+
+p {
+	margin: 0px 2px;
+}
+
+header {
+	text-align: center;
+	padding: 2px;
+	border-bottom: solid 1px gray;
+	font-size: 24px;
+}
+
+header span {
+	vertical-align: top;
+}
+
+.header_img {
+	width: 48px;
+	height: 48px;
+}
+
+div#greet {
+	text-align: right;
+	padding: 2px;
+	border-bottom: solid 1px gray;
+}
+
+div#main {
+	background-image: url("../img/raining.jpeg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: block;
+	border-bottom: solid 1px gray;
+}
+
+#main > div {
+    display: inline-block;
+    height: 100%;
+    width: calc(20% - 8px);
+    padding: 0px 4px;
+    vertical-align: top;
+    color: azure;
+}
+
+div#center {
+	background-color: azure;
+	opacity: 0.70;
+	width: calc(60% - 18px);
+	color: black;
+	height: 100%;
+	min-height: 400px;
+}
+
+#center > div {
+	margin: 0px;
+	border: solid 1px green;
+}
+
+#center table {
+	margin: 4px;
+	width: 98%;
+	max-height: 300px;
+}
+
+#center th, td {
+	border-bottom: solid 1px lightblue;
+}
+
+#center th {
+	font-size: 14px;
+	border-top: solid 1px lightblue;
+}
+
+a.color_red {
+	color: red;
+}
+
+th img {
+	width: 14px;
+	height: 14px;
+	align-items: right;
+}
+
+#user_login_form label {
+	width: 110px;
+	display: inline-block;
+	text-align: right;
+}
+
+input {
+	margin: 2px;
+}
+
+input:focus {
+	border: 1px solid green;
+}
+
+#user_login_form, #file_upload_form, #file_request_form {
+	margin: 6px;
+	border: solid 1px gray;
+	padding: 2px;
+}
+
+input.button_100 {
+	width: 100px;
+}
+
+input.file_upload_form_text {
+	width: calc(100% - 108px - 40px);
+}
+
+input.file_request_form_text {
+	width: calc(100% - 40px);
+}
+
+footer {
+	text-align: center;
+}

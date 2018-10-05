@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>LocalShare</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<script src="../js/scripts.js"></script>
+</head>
+<body>
+	<header>
+		<img class="header_img" src="../img/folder.jpg">
+		<span>Файловое хранилище v 0.01 (Потеряй свои файлы красиво! ;) )</span>
+		<img class="header_img" src="../img/folder.jpg">
+	</header>
+	<div id="greet">
+		Вы вошли в систему как <b>Фёдор</b>. <a href="">Выйти</a>
+	</div>
+	<div id="main">
+		<div>
+			<p><b>Можно загружать:</b></p>
+			<p>ZIP (до 20 Mb);</p>
+			<p>DOCX (до 40 Mb);</p>
+			<p>PPTX (до 50 Mb);</p>
+			<br>
+			<p><b>Использовано:</b></p>
+			<p>27.34 Mb из 100.00 Mb</p>
+		</div>
+		<div id="center">
+			<table id="result_list_table">
+				<tr>
+					<th>Файл
+						<img src="../img/sort-down-filled.png" onclick="sortAsc(0)">
+						<img src="../img/sort-up-filled.png" onclick="sortDesc(0)">
+					</th>
+					<th>Размер (Kb)
+						<img src="../img/sort-down-filled.png" onclick="sortAsc(1)">
+						<img src="../img/sort-up-filled.png" onclick="sortDesc(1)">
+					</th>
+					<th>Дата и время</th>
+					<th>Удалить</th>
+				</tr>
+				<tr>
+					<td><a href="">Это архив с русским именем.zip</a></td>
+					<td>132.22</td>
+					<td>2014.02.28 18:01:15</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">www.app.zip</a></td>
+					<td>132.45</td>
+					<td>2014.02.28 18:24:54</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Большая настольная книга по CSS.pdf</a></td>
+					<td>32569.15</td>
+					<td>2018.10.04 10:59:14</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">EJB 3.0 in action.pdf</a></td>
+					<td>16593.87</td>
+					<td>2018.10.04 11:02:00</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Красная шапочка.epub</a></td>
+					<td>15.4</td>
+					<td>2016.05.25 22:31:17</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+
+				
+				<tr>
+					<td><a href="">Это архив с русским именем.zip</a></td>
+					<td>132.22</td>
+					<td>2014.02.28 18:01:15</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">www.app.zip</a></td>
+					<td>132.45</td>
+					<td>2014.02.28 18:24:54</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Большая настольная книга по CSS.pdf</a></td>
+					<td>32569.15</td>
+					<td>2018.10.04 10:59:14</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">EJB 3.0 in action.pdf</a></td>
+					<td>16593.87</td>
+					<td>2018.10.04 11:02:00</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Красная шапочка.epub</a></td>
+					<td>15.4</td>
+					<td>2016.05.25 22:31:17</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Это архив с русским именем.zip</a></td>
+					<td>132.22</td>
+					<td>2014.02.28 18:01:15</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">www.app.zip</a></td>
+					<td>132.45</td>
+					<td>2014.02.28 18:24:54</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Большая настольная книга по CSS.pdf</a></td>
+					<td>32569.15</td>
+					<td>2018.10.04 10:59:14</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">EJB 3.0 in action.pdf</a></td>
+					<td>16593.87</td>
+					<td>2018.10.04 11:02:00</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+				<tr>
+					<td><a href="">Красная шапочка.epub</a></td>
+					<td>15.4</td>
+					<td>2016.05.25 22:31:17</td>
+					<td><a class="color_red" href="">Удалить</a></td>
+				</tr>
+			</table>
+
+			<form name="file_upload_form" id="file_upload_form">
+				<label><b>Загрузить новый файл:</b></label><br>
+				<input class="button_100" type="button" name="select_file_button" value="Выбрать">
+				<input class="file_upload_form_text" type="text"><br>
+				<input class="button_100" type="button" name="upload_file_button" value="Загрузить">
+			</form>
+
+			<form name="file_request_form" id="file_request_form">
+				<label><b>Запросить с удалённого сервера:</b></label><br>
+				<input class="file_request_form_text" type="text"><br>
+				<label for="file_request_cb1"><b>Поместить в хранилище:</b></label>
+				<input type="checkbox" id="file_request_cb1"><br>
+				<input class="button_100" type="button" name="request_file_button" value="Запросить">
+			</form>
+		</div>
+		<div>
+			<p><b>Статистика:</b></p>
+			<p>Пользователей: 123</p>
+			<p>Файлов: 1234</p>
+			<p>Объём: 2345 Mb</p>
+			<p>Объём / польз.: 45 Mb</p>
+		</div>
+	</div>
+
+
+	<footer>
+		&copy; 2018, EPAM RD <s>PHP</s> Java Training 
+	</footer>
+</body>
+</html>
