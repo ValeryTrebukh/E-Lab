@@ -1,6 +1,11 @@
+html {
+	height: 100%;
+}
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0px;
+	height: 100%;
 }
 
 p {
@@ -12,6 +17,7 @@ header {
 	padding: 2px;
 	border-bottom: solid 1px gray;
 	font-size: 24px;
+	height: 52px;
 }
 
 header span {
@@ -23,23 +29,24 @@ header span {
 	height: 48px;
 }
 
-div#greet {
+#greet {
 	text-align: right;
 	padding: 2px;
 	border-bottom: solid 1px gray;
+	height: 20px;
 }
 
-div#main {
+#main {
 	background-image: url("../img/raining.jpeg");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	display: block;
 	border-bottom: solid 1px gray;
+  	height:calc(100% - 110px);
 }
 
 #main > div {
     display: inline-block;
-    height: 100%;
     width: calc(20% - 8px);
     padding: 0px 4px;
     vertical-align: top;
@@ -51,19 +58,13 @@ div#center {
 	opacity: 0.70;
 	width: calc(60% - 18px);
 	color: black;
-	height: 100%;
-	min-height: 400px;
-}
-
-#center > div {
-	margin: 0px;
-	border: solid 1px green;
+  	height: 100%;
+  	overflow: auto;
 }
 
 #center table {
 	margin: 4px;
 	width: 98%;
-	max-height: 300px;
 }
 
 #center th, td {
@@ -117,6 +118,15 @@ input.file_request_form_text {
 	width: calc(100% - 40px);
 }
 
+.empty {
+  height:20px;
+}
+
 footer {
 	text-align: center;
+	height: 26px;
+	position: absolute;
+	left: 0;
+  	right: 0;
+  	bottom: 0;
 }
