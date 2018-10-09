@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>LocalShare</title>
 	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<script src="../js/scripts.js"></script>
+	<script src="../js/validation.js"></script>
 </head>
 <body>
 	<header>
@@ -19,14 +19,21 @@
 		<div>&nbsp;</div>
 		<div id="center">
 			<form name="user_login_form" id="user_login_form">
-				<label for="user_login_name">Логин:</label>
-				<input type="text" id="user_login_name"><br>
-				<label for="user_login_pass">Пароль:</label>
-				<input type="password" id="user_login_pass"><br>
-				<label for="user_login_cb1">Запомнить:</label>
-				<input type="checkbox" id="user_login_cb1"><br>
-				<label></label>
-				<input class="button_100" type="button" value="Войти" onclick="verify()"><br>
+				<div id="login_form_block">
+					<label for="user_login_name">Логин:</label>
+					<input type="text" id="user_login_name" class="login_input" placeholder="example@domain.com"><br>
+					<label for="user_login_pass">Пароль:</label>
+					<input type="password" id="user_login_pass" class="login_input"><br>
+					<label for="user_login_cb1">Запомнить:</label>
+					<input type="checkbox" id="user_login_cb1"><br>
+					<label></label>
+					<input class="button_100" type="button" value="Войти" onclick="verifyLoginData()"><br>
+				</div>
+				<div id="error_block">
+					<ul id="error_list">
+						
+					</ul>
+				</div>
 			</form>
 		</div>
 		<div>

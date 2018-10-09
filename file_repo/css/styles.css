@@ -62,6 +62,26 @@ div#center {
   	overflow: auto;
 }
 
+#user_login_form > div {
+	display: inline-block;
+}
+
+#user_login_form label {
+	width: 110px;
+	display: inline-block;
+	text-align: right;
+}
+
+#user_login_form, #file_upload_form, #file_request_form {
+	margin: 6px;
+	border: solid 1px gray;
+	padding: 2px;
+}
+
+.login_input {
+	width: 180px;
+}
+
 #center table {
 	margin: 4px;
 	width: 98%;
@@ -86,24 +106,12 @@ th img {
 	align-items: right;
 }
 
-#user_login_form label {
-	width: 110px;
-	display: inline-block;
-	text-align: right;
-}
-
 input {
 	margin: 2px;
 }
 
 input:focus {
 	border: 1px solid green;
-}
-
-#user_login_form, #file_upload_form, #file_request_form {
-	margin: 6px;
-	border: solid 1px gray;
-	padding: 2px;
 }
 
 input.button_100 {
@@ -118,8 +126,15 @@ input.file_request_form_text {
 	width: calc(100% - 40px);
 }
 
-.empty {
-  height:20px;
+#error_block {
+	vertical-align: top;
+	max-width: calc(100% - 320px);
+	color: red;
+}
+
+#error_list {
+	margin: 8px 0px;
+	font-size: 12px;
 }
 
 footer {

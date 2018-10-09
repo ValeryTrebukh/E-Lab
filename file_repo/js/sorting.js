@@ -38,27 +38,3 @@ function compare(a, b) {
 	}
 }
 
-function verify() {
-	var email = document.getElementById("user_login_name").value;
-	var pass = document.getElementById("user_login_pass").value;
-
-	var regexpName = /^[a-zA-Z.\-_0-9]{5,10}@([a-zA-Z]{2,5}[.]){1,2}[a-zA-Z]{2,3}$/;
-
-	if(regexpName.test(email.trim())) {
-		// OK
-	} else {
-		var name = email.split("@")[0]; 
-		alert(name);
-	}
-
-
-	
-}
-
-// third-level domains not allowed
-// no special symbols in name
-// no special symbols in domain
-// too short name
-// too long name
-// too short domain name
-// too long domain name
