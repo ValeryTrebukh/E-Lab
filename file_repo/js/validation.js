@@ -4,21 +4,22 @@ function verifyLoginData() {
 
 	var errorsList = new Array();
 
+	if(!isValidEmail()) {
+		defineEmailViolations();
+	}
 
-	if(isValidEmail() && isValidPassword()) {
+	definePasswordViolations();
+
+	if(errorsList.length == 0) {
 		resetErrors();
 	} else {
-		defineEmailViolations();
 		displayViolations();
 	}
+
 
 	function isValidEmail() {
 		var regexpName = /(^[a-zA-Z][a-zA-Z\.\-_0-9]{3,19}@([a-zA-Z]{2,5}\.){1,2}[a-zA-Z]{2,5}$)|(^[а-яА-Я][а-яА-Я\.\-_0-9]{3,19}@([а-яА-Я]{2,5}\.){1,2}[а-яА-Я]{2,5}$)/;
 		return regexpName.test(email.trim());
-	}
-
-	function isValidPassword() {
-		return passwordViolations == 0;
 	}
 
 	function defineEmailViolations() {
@@ -50,29 +51,61 @@ function verifyLoginData() {
 			errorsList[counter++] = "no special symbols allowed except for dot, hyphen, underscore";
 		}
 
-
-
-		if(isNotValidPasswordLength()) {
-			errorsList[counter++] = "password length must be within 8 to 20 symbols";
+		if(errorsList.length == 0) {
+			errorsList[counter++] = "invalid email";
 		}
-		if(isNotContainsLowerCase()) {
-			errorsList[counter++] = "password should contain at least one lower-case letter.";
-		}
-		if(isNotContainsUpperCase()) {
-			errorsList[counter++] = "password should contain at least one upper-case letter.";
-		}
-		if(isNotContainsDigit()) {
-			errorsList[counter++] = "password should contain at least one digit.";
-		}
-		if(isNotContainsSymbol()) {
-			errorsList[counter++] = "password should contain at least one symbol: '!', '%', '&', '?', '@'.";
-		}
-
-		// if(errorsList.length == 0) {
-		// 	errorsList[counter++] = "undefined email error";
-		// }
 	}
 
+
+	function definePasswordViolations() {
+		var violations = 0;
+		var counter = errorsList.length;
+
+		if(isNotValidPasswordLength()) {
+			violations++;
+			errorsList[counter++] = "password length must be within 8 to 20 symbols";
+		}
+		if(isNotContainsLowerCase(password)) {
+			violations++;
+			errorsList[counter++] = "password should contain at least one lower-case letter.";
+		}
+		if(isNotContainsUpperCase(password)) {
+			violations++;
+			errorsList[counter++] = "password should contain at least one upper-case letter.";
+		}
+		if(isNotContainsDigit(password)) {
+			violations++;
+			errorsList[counter++] = "password should contain at least one digit.";
+		}
+		if(isNotContainsSymbol(password)) {
+			violations++;
+			errorsList[counter++] = "password should contain at least one symbol: '!', '%', '&', '?', '@'.";
+		}
+		return violations == 0;
+	}
+
+	function isNotValidPasswordLength() {
+		return password.length < 8 || password.length > 20;
+	}
+
+	function isNotContainsLowerCase(str) {
+		return !(/[a-z]/.test(str));
+	} 
+
+	function isNotContainsUpperCase(str) {
+		return !(/[A-Z]/.test(str));
+	} 
+
+	function isNotContainsDigit(str) {
+		return !(/[0-9]/.test(str));
+	} 
+
+	function isNotContainsSymbol(str) {
+		return !(/[!%&?@]/.test(str));
+	}
+
+
+	
 	function isNotValidEmailStructure() {
 		var arr = email.match(/@/g);
 		return email.search(/.+@.*[.].{2,5}/) == -1 || arr.length > 1;
@@ -102,7 +135,6 @@ function verifyLoginData() {
 
 	function isOnlyLettersInDomainName() {
 		var domain =  email.split("@")[1];
-		
 		return /[^a-zA-Zа-яА-Я\.]/.test(domain) 
 	}
 
@@ -115,47 +147,6 @@ function verifyLoginData() {
 	}
 
 
-	function passwordViolations() {
-		var violations = 0;
-
-		if(isNotValidPasswordLength()) {
-			violations++;
-		}
-		if(isNotContainsLowerCase()) {
-			violations++;
-		}
-		if(isNotContainsUpperCase()) {
-			violations++;
-		}
-		if(isNotContainsDigit()) {
-			violations++;
-		}
-		if(isNotContainsSymbol()) {
-			violations++;
-		}
-		return violations == 0;
-	}
-
-	function isNotValidPasswordLength() {
-		return password.length < 8 || password.length > 20;
-	}
-
-	function isNotContainsLowerCase() {
-		return !/[a-z]/.test(password);
-	} 
-
-	function isNotContainsUpperCase() {
-		return !/[A-Z]/.test(password);
-	} 
-
-	function isNotContainsDigit() {
-		return !/[0-9]/.test(password);
-	} 
-
-	function isNotContainsSymbol() {
-		return !/[!%&?@]/.test(password);
-	}
-	
 
 	function displayViolations() {
 		if(errorsList.length > 0) {
