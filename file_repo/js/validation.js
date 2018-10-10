@@ -50,6 +50,9 @@ function verifyLoginData() {
 		if(isSpecialSymlolsInEmailName() || isSpecialSymlolsInDomainName()) {
 			errorsList[counter++] = "no special symbols allowed except for dot, hyphen, underscore";
 		}
+		if(isDomainLevelNotAcceptable()) {
+			errorsList[counter++] = "only second-level and third-level domains are allowed";
+		}
 
 		if(errorsList.length == 0) {
 			errorsList[counter++] = "invalid email";
@@ -146,6 +149,10 @@ function verifyLoginData() {
 		return /[^a-zA-Zа-яА-Я\.\-_0-9]/.test(email.split("@")[1]);
 	}
 
+	function isDomainLevelNotAcceptable() {
+		return email.split("@")[1].split(".").length > 3;
+	}
+
 
 
 	function displayViolations() {
@@ -165,25 +172,3 @@ function verifyLoginData() {
 		ul.innerHTML = "";
 	}
 }
-
-/*
-		name restrictions
-
-		domain restrictions
-
-	third-level domains not allowed
-
-		
-		password restrictions
-
-	too short password
-	too long password
-	should contain lower-case letters
-	should contain upper-case letters
-	should contain digits
-	should contain special characters (at least one): ! % & ?
-
-*/
-
-
-
